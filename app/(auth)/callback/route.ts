@@ -1,0 +1,25 @@
+import { NextResponse } from "next/server";
+import { createClient } from "@/lib/supabase/server";
+
+/**
+ * Landing point for Supabase OAuth redirects (Google, etc.). Supabase
+ * appends `code` to the redirectTo URL we gave it; we also carry our
+ * own `next` param through (see components/auth/GoogleButton.tsx) so
+ * the person lands back where they intended rather than always on
+ * /dashboard.
+ */
+export async function GET(request: Request) {
+  const { searchParams, origin } = new URL(request.url);
+  const code = searchParams.get("code");
+  const next = searchParams.get("next") ?? "/dashboard";
+
+  if (code) {
+    const supabase = await createClient();
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
+    if (error) {
+      return NextResponse.redirect(`${origin}/login?error=oauth_failed`);
+    }
+  }
+
+  return NextResponse.redirect(`${origin}${next}`);
+}
