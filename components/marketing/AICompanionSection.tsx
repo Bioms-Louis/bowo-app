@@ -2,9 +2,9 @@ import { MessageCircle, ShieldCheck, Clock } from "lucide-react";
 
 export function AICompanionSection() {
   return (
-    <section id="ai-companion" className="rounded-2xl border border-border-subtle shadow-lg mx-auto max-w-6xl px-8 mt-10 py-20 lg:px-16">
+    <section className="rounded-2xl border border-border-subtle shadow-lg mx-auto max-w-6xl px-8 mt-10 py-20 lg:px-16">
       <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-        <div className="order-2 rounded-2xl border border-border-subtle bg-white p-5 shadow-lg lg:order-1">
+        <div className="transition-all duration-200 ease-out hover:scale-[1.03] hover:shadow-md active:scale-95 order-2 rounded-2xl border border-border-subtle bg-white p-5 shadow-lg lg:order-1">
           <div className="mb-4 flex items-center gap-2 border-b border-border-subtle pb-4">
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-500 text-white">
               <MessageCircle size={14} />

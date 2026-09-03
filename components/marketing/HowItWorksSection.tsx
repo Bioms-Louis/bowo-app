@@ -31,7 +31,7 @@ const STEPS = [
 export function HowItWorksSection() {
   return (
     <section id="how-it-works" className="mx-auto max-w-12xl px-8 py-20 lg:px-16">
-      <div className="mb-12 text-center">
+      <div className="text-center">
         <h4 className="text-3xl font-bold text-brand-500">How It Works</h4>
         <h2 className="mt-3 text-4xl font-medium text-slate-900 sm:text-4xl">
           From a single entry to a picture of your purpose.
@@ -42,13 +42,13 @@ export function HowItWorksSection() {
         </p>
       </div>
 
-      <ol className="relative space-y-10  pl-10 px-12 sm:pl-12 sm:px-8 lg:pl-16 lg:px-16">
+      <ol className="relative space-y-10 pl-10 px-12 sm:pl-12 sm:px-8 lg:pl-16 lg:px-16">
         {STEPS.map(({ icon: Icon, title, desc }, i) => (
-          <li key={title} className="relative">
+          <li key={title} className="relative transition-all duration-200 ease-in-out hover:scale-[1.05] hover:shadow-lg hover:p-2 hover:border border-brand-200 hover:rounded-2xl hover:bg-brand-50 active:scale-95">
             <span className="absolute -left-[52px] flex h-9 w-9 items-center justify-center rounded-full border border-border-subtle bg-white text-sm font-semibold text-brand-600">
               {i + 1}
             </span>
-            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-500">
+            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500 text-white">
               <Icon size={20} />
             </div>
             <p className="text-base font-semibold text-slate-900">{title}</p>
@@ -57,7 +57,7 @@ export function HowItWorksSection() {
         ))}
       </ol>
 
-      <div className="mt-10 rounded-2xl bg-brand-50 shadow-lg p-8">
+      <div className=" transition-all duration-200 ease-out hover:scale-[1.05] hover:shadow-lg hover:border border-brand-200 hover:rounded-2xl hover:bg-white active:scale-95 mt-10 rounded-2xl bg-brand-50 shadow-lg p-8">
         <h3 className="text-lg font-bold text-slate-900">What this isn&apos;t</h3>
         <p className="mt-3 text-sm text-muted">
           BOWO doesn&apos;t predict your future or tell you what you&apos;re destined for.

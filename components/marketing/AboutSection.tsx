@@ -28,12 +28,18 @@ export function AboutSection() {
     <section
       id="about"
       className="bg-brand-50 relative mx-auto mt-10 max-w-6xl overflow-hidden rounded-2xl border border-border-subtle px-8 py-20 lg:px-16">
+            <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/image/about.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/25 via-white/50 to-white/65" />
+
       <div className="relative mx-auto max-w-2xl text-center">
         <h4 className="text-3xl font-bold text-brand-500">About BOWO</h4>
         <h2 className="mt-3 text-2xl font-medium leading-tight text-slate-900 sm:text-2xl">
           We built BOWO because most people don&apos;t lack purpose they lack a record of it.
         </h2>
-        <p className="mt-5 mb-8 text-base text-muted">
+        <p className="mt-5 mb-8 text-base text-slate-900">
           The moments that reveal who you are rarely announce themselves. They show up in an
           offhand journal entry, a repeated frustration, a thing you keep coming back to. Written
           down and looked at together, they start to form a picture. BOWO exists to help you see

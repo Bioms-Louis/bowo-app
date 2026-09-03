@@ -13,7 +13,7 @@ export function FeatureStrip() {
     <section id="features" className="relative z-10 mx-auto mt-10 max-w-6xl px-8 lg:px-16">
       <div className="grid grid-cols-1 gap-6 rounded-2xl border border-border-subtle bg-brand-50 p-8 shadow-lg sm:grid-cols-2 lg:grid-cols-5">
         {FEATURES.map(({ icon: Icon, title, desc }) => (
-          <div key={title}>
+          <div className="transition-all delay-150 duration-300 ease-in-out hover:border border-brand-200 hover:p-2 hover:rounded-2xl hover:scale-[1.03] hover:shadow-md active:scale-95" key={title}>
             <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-white text-brand-500">
               <Icon size={18} />
             </div>

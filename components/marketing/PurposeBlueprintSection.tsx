@@ -9,7 +9,7 @@ const QUADRANTS = [
 
 export function PurposeBlueprintSection() {
   return (
-    <section id="blueprint" className="mx-auto  bg-brand-50 rounded-2xl border border-border-subtle shadow-lg max-w-6xl px-8 py-20 lg:px-16">
+    <section className="mt-10 mx-auto  bg-brand-50 rounded-2xl border border-border-subtle shadow-lg max-w-6xl px-8 py-20 lg:px-16">
       <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
         <div>
           <p className="text-3x1 font-medium text-brand-600">Purpose Blueprint</p>
@@ -36,11 +36,7 @@ export function PurposeBlueprintSection() {
             ))}
           </ul>
         </div>
-
-        {/* Stylized preview — not a live data view, just a visual echo
-            of the actual /blueprint page so visitors know what they're
-            signing up for. */}
-        <div className="rounded-2xl border border-border-subtle bg-white p-6 shadow-lg">
+        <div className="transition-all duration-200 ease-out hover:scale-[1.03] hover:shadow-md active:scale-95 rounded-2xl border border-border-subtle bg-white p-6 shadow-lg">
           <div className="mb-5 flex items-center justify-between">
             <p className="text-sm font-semibold text-slate-900">Your Purpose Blueprint</p>
             <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-600">

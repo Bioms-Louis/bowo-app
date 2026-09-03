@@ -26,7 +26,7 @@ const PAIN_POINTS = [
 export function PainPointsSection() {
   return (
     <section
-      className="mt-10 relative mx-auto max-w-6xl overflow-hidden rounded-2xl border border-border-subtle px-8 py-20 lg:px-16">
+      className="-mt-5 relative mx-auto max-w-6xl overflow-hidden rounded-2xl border border-border-subtle px-8 py-20 lg:px-16">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/image/pain-points.jpg')" }}
