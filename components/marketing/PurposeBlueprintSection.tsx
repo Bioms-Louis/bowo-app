@@ -12,12 +12,12 @@ export function PurposeBlueprintSection() {
     <section id="blueprint" className="mx-auto  bg-brand-50 rounded-2xl border border-border-subtle shadow-lg max-w-6xl px-8 py-20 lg:px-16">
       <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
         <div>
-          <p className="text-3x1 font-medium text-brand-600">The Purpose Blueprint</p>
+          <p className="text-3x1 font-medium text-brand-600">Purpose Blueprint</p>
           <h2 className="mt-3 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">
             One evolving picture, built from everything you&apos;ve written.
           </h2>
           <p className="mt-4 text-base text-muted">
-            Your Blueprint isn&apos;t a personality quiz result you get once and forget. It&apos;s
+            Your Purpose Blueprint isn&apos;t a personality quiz result you get once and forget. It&apos;s
             a living summary your identity, your strengths, your growth areas, and what
             you&apos;re currently focused on that updates as your journal grows.
           </p>
