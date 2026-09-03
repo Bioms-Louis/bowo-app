@@ -49,10 +49,10 @@ export function HowItWorksSection() {
               {i + 1}
             </span>
             <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500 text-white">
-              <Icon size={20} />
+              <Icon size={18} />
             </div>
             <p className="text-base font-semibold text-slate-900">{title}</p>
-            <p className="mt-1 mb-4 max-w-lg text-sm text-muted">{desc}</p>
+            <p className="mt-1 mb-4 max-w-auto text-sm text-muted">{desc}</p>
           </li>
         ))}
       </ol>
