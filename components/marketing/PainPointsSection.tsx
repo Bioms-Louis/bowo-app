@@ -34,12 +34,12 @@ export function PainPointsSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-white/50 to-white/45" />
 
       <div className="relative mx-auto max-w-2xl text-center">
-        <p className="text-sm font-medium text-brand-600">The Problem</p>
+        <p className="text-3x1 font-medium text-brand-600">The Problem</p>
         <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
           Purpose doesn&apos;t announce itself. It has to be noticed.
         </h2>
         <p className="mt-4 text-base text-muted">
-          Most people aren&apos;t missing purpose — they&apos;re missing a way to see the pattern
+          Most people aren&apos;t missing purpose they&apos;re missing a way to see the pattern
           in what they&apos;ve already lived and written.
         </p>
       </div>
