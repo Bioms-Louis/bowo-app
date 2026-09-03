@@ -31,14 +31,14 @@ export function PainPointsSection() {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/image/pain-points.jpg')" }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-white/50 to-white/45" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-white/50 to-white/65" />
 
       <div className="relative mx-auto max-w-2xl text-center">
-        <p className="text-3x1 font-medium text-brand-600">The Problem</p>
+        <p className="text-3xl font-medium text-brand-600">The Pain Points</p>
         <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
           Purpose doesn&apos;t announce itself. It has to be noticed.
         </h2>
-        <p className="mt-4 text-base text-muted">
+        <p className="mt-4 text-base text-slate-900">
           Most people aren&apos;t missing purpose they&apos;re missing a way to see the pattern
           in what they&apos;ve already lived and written.
         </p>
