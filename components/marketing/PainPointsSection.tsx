@@ -25,21 +25,28 @@ const PAIN_POINTS = [
 
 export function PainPointsSection() {
   return (
-    <section id="problem" className=" rounded-2xl border border-border-subtle bg-brand-100 mt-10 mx-auto max-w-5xl px-8 py-20 lg:px-16">
-      <div className="mx-auto max-w-2xl text-center">
-        <p className="text-4xl font-medium text-brand-600">The Pain Point</p>
+    <section
+      className="mt-10 relative mx-auto max-w-6xl overflow-hidden rounded-2xl border border-border-subtle px-8 py-20 lg:px-16">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/image/pain-points.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-white/50 to-white/45" />
+
+      <div className="relative mx-auto max-w-2xl text-center">
+        <p className="text-sm font-medium text-brand-600">The Problem</p>
         <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
           Purpose doesn&apos;t announce itself. It has to be noticed.
         </h2>
         <p className="mt-4 text-base text-muted">
-          Most people aren&apos;t missing purpose they&apos;re missing a way to see the pattern
+          Most people aren&apos;t missing purpose — they&apos;re missing a way to see the pattern
           in what they&apos;ve already lived and written.
         </p>
       </div>
 
-      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+      <div className="relative mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
         {PAIN_POINTS.map(({ icon: Icon, title, desc }) => (
-          <div key={title} className="rounded-2xl border  bg-white border-border-subtle p-6">
+          <div key={title} className="rounded-2xl border border-border-subtle bg-white p-6">
             <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-red-500">
               <Icon size={18} />
             </div>

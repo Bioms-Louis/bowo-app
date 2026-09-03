@@ -27,14 +27,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative mx-auto mt-10 max-w-6xl overflow-hidden rounded-2xl border border-border-subtle px-8 py-20 lg:px-16"
-    >
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/image/about.jpg')" }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-brand-50/65 to-white/65" />
-
+      className="bg-brand-50 relative mx-auto mt-10 max-w-6xl overflow-hidden rounded-2xl border border-border-subtle px-8 py-20 lg:px-16">
       <div className="relative mx-auto max-w-2xl text-center">
         <h4 className="text-3xl font-bold text-brand-500">About BOWO</h4>
         <h2 className="mt-3 text-2xl font-medium leading-tight text-slate-900 sm:text-2xl">

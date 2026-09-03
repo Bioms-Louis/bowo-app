@@ -21,7 +21,7 @@ export default function LandingPage() {
       <AICompanionSection />
       <AboutSection />
 
-      <section id="contact" className="rounded-4xl mx-auto max-w-5xl mt-1 mb-10 px-8 bg-brand-50/60 shadow-lg lg:px-16 p-15">
+      <section id="contact" className="rounded-4xl mx-auto max-w-5xl mt-10 mb-10 px-8 bg-brand-50/60 shadow-lg lg:px-16 p-15">
         <h2 className="mb-1 -mt-10 text-center text-4xl font-bold text-brand-500">Get in touch</h2>
         <p className="mb-6 text-center text-sm text-muted">
           Questions about BOWO? Send us a message.
