@@ -37,7 +37,7 @@ const FEATURES = [
   {
     title: "Journal",
     desc: "Capture your thoughts, experiences and lessons.",
-    rotate: "-rotate-1",
+    rotate: "rotate-0",
     mock: (
       <PhoneFrame>
         <div className="space-y-2.5">
@@ -93,7 +93,7 @@ const FEATURES = [
   {
     title: "Insights",
     desc: "Get personalized insights from your unique story.",
-    rotate: "-rotate-1",
+    rotate: "rotate-0",
     mock: (
       <PhoneFrame>
         <div className="space-y-3">
@@ -187,7 +187,7 @@ const FEATURES = [
   {
     title: "Evidence",
     desc: "Every insight is backed by your own journey.",
-    rotate: "rotate-1",
+    rotate: "rotate-0",
     mock: (
       <PhoneFrame>
         <div className="space-y-3">
@@ -241,7 +241,7 @@ const FEATURES = [
   {
     title: "Purpose Blueprint",
     desc: "See the bigger picture of your life's purpose.",
-    rotate: "rotate-1",
+    rotate: "rotate-0",
     mock: (
       <PhoneFrame>
         <div className="space-y-3">
@@ -375,7 +375,7 @@ export function FeatureStrip() {
             <article
               key={`${feature.title}-${index}`}
               data-feature-card
-              className={`group w-[210px] shrink-0 origin-bottom transition-all duration-300 hover:translate-y-4 hover:rotate-0 sm:w-[240px] lg:w-[260px] ${feature.rotate}`}
+              className={`group w-[210px] shrink-0 origin-bottom transition-all duration-300 hover:translate-y-2 hover:rotate-0 sm:w-[240px] lg:w-[260px] ${feature.rotate}`}
             >
               {/* Main Feature Card */}
               <div className="rounded-[1.6rem] border border-[#e6e0d8] bg-white px-4 pt-5 shadow-[0_12px_35px_rgba(0,0,0,0.06)] sm:px-5">
