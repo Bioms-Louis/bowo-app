@@ -3,7 +3,7 @@ import "./globals.css";
 import { ScrollToTopButton } from "@/components/ui/ScrollToTopButton";
 
 export const metadata: Metadata = {
-  title: "BOWO — Born With Purpose",
+  title: "BOWO - Born With Purpose",
   description: "Document your journey, uncover patterns, and walk intentionally in your purpose.",
 };
 

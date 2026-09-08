@@ -9,7 +9,7 @@ const QUADRANTS = [
 
 export function PurposeBlueprintSection() {
   return (
-    <section className="mt-10 mx-auto  bg-brand-50 rounded-2xl border border-border-subtle shadow-lg max-w-6xl px-8 py-20 lg:px-16">
+    <section id="blueprint" className="mt-10 mx-auto  bg-background rounded-4xl border border-border-subtle shadow-lg max-w-6xl px-8 py-20 lg:px-16">
       <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
         <div>
           <p className="text-3x1 font-medium text-brand-600">Purpose Blueprint</p>
@@ -36,7 +36,7 @@ export function PurposeBlueprintSection() {
             ))}
           </ul>
         </div>
-        <div className="transition-all duration-200 ease-out hover:scale-[1.03] hover:shadow-md active:scale-95 rounded-2xl border border-border-subtle bg-white p-6 shadow-lg">
+        <div className="transition-all duration-200 ease-out hover:scale-[1.03] hover:shadow-md active:scale-95 rounded-4xl border border-border-subtle bg-white p-6 shadow-lg">
           <div className="mb-5 flex items-center justify-between">
             <p className="text-sm font-semibold text-slate-900">Your Purpose Blueprint</p>
             <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-600">
@@ -44,7 +44,7 @@ export function PurposeBlueprintSection() {
             </span>
           </div>
 
-          <div className="mb-5 rounded-xl bg-brand-500 p-5 text-center">
+          <div className="mb-5 rounded-4xl bg-brand-500 p-5 text-center">
             <p className="text-sm font-medium text-white/90">
               &ldquo;To influence lives and build solutions that create meaningful impact.&rdquo;
             </p>
@@ -52,8 +52,8 @@ export function PurposeBlueprintSection() {
 
           <div className="grid grid-cols-2 gap-3">
             {QUADRANTS.map(({ icon: Icon, label }) => (
-              <div key={label} className="rounded-xl border border-border-subtle p-3">
-                <div className="mb-2 flex h-7 w-7 items-center justify-center rounded-lg bg-brand-50 text-brand-500">
+              <div key={label} className="rounded-4xl border border-border-subtle p-3">
+                <div className="mb-2 flex h-7 w-7 items-center justify-center rounded-4xl bg-brand-50 text-brand-500">
                   <Icon size={14} />
                 </div>
                 <p className="text-xs font-medium text-slate-700">{label}</p>

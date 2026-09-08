@@ -25,7 +25,7 @@ export function MarketingHeader() {
   }, [mobileOpen]);
 
   return (
-    <header className="relative z-50 px-8 py-5 lg:px-16">
+    <header className="relative z-50 px-8 py-5 bg-background lg:px-16">
       <style>{`
         @media (min-width: 1024px) {
           .bowo-mobile-toggle,
@@ -73,7 +73,7 @@ export function MarketingHeader() {
           Log in
         </Link>
         <Link href="/signup">
-          <Button size="lg">Start Your Journey</Button>
+          <Button size="lg" className="rounded-full">Start Your Journey</Button>
         </Link>
       </div>
 
@@ -103,8 +103,8 @@ export function MarketingHeader() {
                 onClick={() => setMobileOpen(false)}
                 className={
                   i === 0
-                    ? "rounded-lg bg-brand-50 px-3 py-3 text-base font-medium text-brand-600"
-                    : "rounded-lg px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50"
+                    ? "rounded-full bg-brand-50 px-3 py-3 text-base font-medium text-brand-600"
+                    : "rounded-full px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50"
                 }
               >
                 {link.label}
@@ -116,12 +116,12 @@ export function MarketingHeader() {
             <Link
               href="/login"
               onClick={() => setMobileOpen(false)}
-              className="rounded-lg px-3 py-3 text-center text-base font-medium text-slate-700 hover:bg-slate-50"
+              className="rounded-full px-3 py-3 text-center text-base font-medium text-slate-700 hover:bg-slate-50"
             >
               Log in
             </Link>
             <Link href="/signup" onClick={() => setMobileOpen(false)}>
-              <Button size="lg" className="w-full">
+              <Button size="lg" className="w-full rounded-full">
                 Start Your Journey
               </Button>
             </Link>

@@ -2,9 +2,9 @@ import { MessageCircle, ShieldCheck, Clock } from "lucide-react";
 
 export function AICompanionSection() {
   return (
-    <section className="rounded-2xl border border-border-subtle shadow-lg mx-auto max-w-6xl px-8 mt-10 py-20 lg:px-16">
+    <section id="ai-companion" className="rounded-4xl border border-border-subtle bg-background shadow-lg mx-auto max-w-6xl px-8 mt-10 py-20 lg:px-16">
       <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-        <div className="transition-all duration-200 ease-out hover:scale-[1.03] hover:shadow-md active:scale-95 order-2 rounded-2xl border border-border-subtle bg-white p-5 shadow-lg lg:order-1">
+        <div className="transition-all duration-200 ease-out hover:scale-[1.03] hover:shadow-md active:scale-95 order-2 rounded-4xl border border-border-subtle bg-white p-5 shadow-lg lg:order-1">
           <div className="mb-4 flex items-center gap-2 border-b border-border-subtle pb-4">
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-500 text-white">
               <MessageCircle size={14} />
@@ -13,10 +13,10 @@ export function AICompanionSection() {
           </div>
 
           <div className="space-y-3">
-            <div className="ml-auto max-w-[85%] rounded-2xl bg-brand-500 px-3 py-2 text-sm text-white">
+            <div className="ml-auto max-w-[85%] rounded-4xl bg-brand-500 px-3 py-2 text-sm text-white">
               I keep saying yes to things I don&apos;t actually want to do. Is that a pattern?
             </div>
-            <div className="max-w-[85%] rounded-2xl bg-slate-100 px-3 py-2 text-sm text-slate-700">
+            <div className="max-w-[85%] rounded-4xl bg-slate-100 px-3 py-2 text-sm text-slate-700">
               It shows up in three of your recent entries all around saying yes out of guilt
               rather than genuine interest. Want to look at what they have in common?
             </div>

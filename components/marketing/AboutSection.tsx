@@ -27,30 +27,24 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="bg-brand-50 relative mx-auto mt-10 max-w-6xl overflow-hidden rounded-2xl border border-border-subtle px-8 py-20 lg:px-16">
-            <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/image/about.jpg')" }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-white/25 via-white/50 to-white/65" />
-
+      className="bg-background relative mx-auto mt-1 max-w-6xl overflow-hidden rounded-4xl border border-border-subtle px-8 py-20 lg:px-16">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+        />
       <div className="relative mx-auto max-w-2xl text-center">
         <h4 className="text-3xl font-bold text-brand-500">About BOWO</h4>
         <h2 className="mt-3 text-2xl font-medium leading-tight text-slate-900 sm:text-2xl">
           We built BOWO because most people don&apos;t lack purpose they lack a record of it.
         </h2>
         <p className="mt-5 mb-8 text-base text-slate-900">
-          The moments that reveal who you are rarely announce themselves. They show up in an
-          offhand journal entry, a repeated frustration, a thing you keep coming back to. Written
-          down and looked at together, they start to form a picture. BOWO exists to help you see
-          that picture as it forms not to hand you a verdict about who you are.
+          Purpose always leaves clues. They show up in an offhand journal entry, a repeated frustration, a thing you keep coming back to. Written down and looked at together, they start to form a picture. BOWO exists to help you see that picture as it forms not to hand you a verdict about who you are.  
         </p>
       </div>
 
       <div className="relative mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
         {VALUES.map(({ icon: Icon, title, desc }) => (
-          <div key={title} className="bg-white rounded-2xl border border-border-subtle p-6">
-            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-500">
+          <div key={title} className="bg-white shadow-lg rounded-4xl border border-brand-50/60 p-6">
+            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-4xl bg-brand-50 text-brand-500">
               <Icon size={18} />
             </div>
             <p className="text-base font-semibold text-slate-900">{title}</p>

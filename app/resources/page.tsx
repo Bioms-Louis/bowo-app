@@ -1,4 +1,5 @@
 import { MarketingHeader } from "@/components/marketing/Header";
+import { Footer } from "@/components/marketing/Footer";
 
 export default function LandingPage() {
   return (
@@ -11,6 +12,8 @@ export default function LandingPage() {
             Coming soon!
           </p>
         </div>
+
+        <Footer />
       </div>  
   );
 }
