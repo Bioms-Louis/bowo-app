@@ -17,7 +17,7 @@ const STEPS = [
     title: "Let BOWO read between the lines",
     subtitle: "Your story becomes the evidence.",
     desc: [
-      "As your reflections accumulate, BOWO analyzes what you're sharing for recurring themes, values, motivations, strengths, experiences, behaviors, and areas of growth. Its analysis is guided by the BOWO Purpose Framework — a body of teachings and principles developed by Olajide Ajibowo over more than two decades, through his books, teachings, and understanding of purpose inspired by the Holy Spirit, with psychological analysis applied where relevant.",
+      "As your reflections accumulate, BOWO analyzes what you're sharing for recurring themes, values, motivations, strengths, experiences, behaviors, and areas of growth. Its analysis is guided by the BOWO Purpose Framework a body of teachings and principles developed by Olajide Ajibowo over more than two decades, through his books, teachings, and understanding of purpose inspired by the Holy Spirit, with psychological analysis applied where relevant.",
     ],
   },
   {
@@ -45,8 +45,7 @@ const STEPS = [
       "Talents",
       "Spiritual Gifts",
       "Biblical & Contemporary Tribes",
-      "Encounters",
-      "and more",
+      "Encounters and more",
     ],
   },
   {
@@ -89,7 +88,7 @@ export function HowItWorksSection() {
         </p>
       </div>
 
-      <ol className="relative space-y-10 pl-10 px-12 sm:pl-12 sm:px-8 lg:pl-16 lg:px-16">
+      <ol className="relative mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
         {STEPS.map(({ number, icon: Icon, title, subtitle, desc, list }) => (
           <li
             key={title}
@@ -111,7 +110,7 @@ export function HowItWorksSection() {
             </div>
 
             {list && (
-              <ul className="mb-4 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-1.5 sm:grid-cols-3">
+              <ul className="mb-4 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-1.5">
                 {list.map((item) => (
                   <li key={item} className="flex items-center gap-2 text-sm text-slate-700">
                     <span className="h-1 w-1 shrink-0 rounded-full bg-brand-400" />
