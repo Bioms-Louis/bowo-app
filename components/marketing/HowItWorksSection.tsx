@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import { NotebookPen, Sparkles, ShieldCheck, Layers, UserCheck, Compass } from "lucide-react";
 
 const STEPS = [
@@ -75,8 +78,51 @@ const STEPS = [
 ];
 
 export function HowItWorksSection() {
+  const containerRef = useRef<HTMLOListElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const items = Array.from(container.querySelectorAll<HTMLElement>("[data-step-card]"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("bowo-step-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    items.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="how-it-works" className="mx-auto mt-10 w-full bg-background p-2 px-8 py-20 lg:px-16">
+      <style>{`
+        [data-step-card] {
+          opacity: 0;
+          transform: translateY(24px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        [data-step-card].bowo-step-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+          [data-step-card] {
+            opacity: 1;
+            transform: none;
+            transition: none;
+          }
+        }
+      `}</style>
+
       <div className="text-center">
         <h4 className="text-3xl font-bold text-brand-500">How It Works</h4>
         <h2 className="mt-3 text-4xl font-medium text-slate-900 sm:text-4xl">
@@ -88,22 +134,28 @@ export function HowItWorksSection() {
         </p>
       </div>
 
-      <ol className="relative mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
-        {STEPS.map(({ number, icon: Icon, title, subtitle, desc, list }) => (
+      <ol ref={containerRef} className="relative mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        {STEPS.map(({ number, icon: Icon, title, subtitle, desc, list }, i) => (
           <li
             key={title}
-            className="relative transition-all duration-200 shadow-lg p-5 ease-in-out rounded-4xl hover:scale-[1.05] hover:p-5 hover:rounded-4xl hover:shadow-lg active:scale-95"
+            data-step-card
+            style={{ transitionDelay: `${(i % 3) * 200}ms` }}
+            className="group relative rounded-4xl p-5 shadow-lg transition-all duration-200 ease-in-out hover:-translate-y-1 hover:scale-[1.03] hover:shadow-xl active:scale-95 hover:bg-brand-50/60"
           >
-            <p className="mb-2 text-sm font-bold tracking-wide text-brand-500">{number} —</p>
-            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-4xl bg-brand-500 text-white">
+            <p className="mb-2 text-sm font-bold tracking-wide text-brand-500 transition-transform duration-200 group-hover:translate-x-1">
+              {number} 
+            </p>
+            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-4xl bg-brand-500 text-white transition-transform duration-300 ease-out group-hover:rotate-12 group-hover:scale-110">
               <Icon size={18} />
             </div>
-            <p className="text-lg font-semibold text-slate-900">{title}</p>
-            <p className="mt-1 text-sm font-medium text-brand-600">{subtitle}</p>
+
+            <p className="inline-block text-lg font-semibold text-slate-900">{title}</p>
+            <div className="mb-1 h-0.5 w-0 rounded-full bg-brand-400 transition-all duration-300 ease-out group-hover:w-10" />
+            <p className="text-sm font-medium text-brand-600">{subtitle}</p>
 
             <div className="mt-3 mb-4 max-w-2xl space-y-3">
-              {desc.map((paragraph, i) => (
-                <p key={i} className="text-sm text-muted">
+              {desc.map((paragraph, j) => (
+                <p key={j} className="text-sm text-muted">
                   {paragraph}
                 </p>
               ))}

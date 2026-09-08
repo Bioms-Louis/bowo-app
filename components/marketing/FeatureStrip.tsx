@@ -364,17 +364,17 @@ export function FeatureStrip() {
   return (
     <section
       id="features"
-      className="bg-brand-50 relative z-10 mx-auto mt-10 max-w-[1500px] px-4 sm:px-8 lg:px-16"
+      className="bg-brand-50 relative z-10 mx-auto mt-10 px-4 sm:px-8 lg:px-16"
     >
       <div className="overflow-hidden rounded-[2.5rem] bg-brand-50 py-10 sm:py-12">
         <h4 className="mb-5 text-center text-2xl font-bold text-brand-500">
-          BOWOFeatures
+          BOWO Features
         </h4>
         <h2 className="mb-5 text-center text-2xl font-bold text-slate-900">
           Discover BOWO Powerful Features
         </h2>
         <p className="mx-auto mb-5 max-w-[600px] text-center text-muted">
-          BOWO is designed to help you uncover your purpose through journaling, insights, and AI guidance. Explore the features that make BOWO a unique companion on your journey of self-discovery.
+          BOWO is designed to help you uncover your purpose through journaling, insights, and AI guidance. Explore the features that make BOWO a unique companion on your journey of self-discovery and purpose.
         </p>
         <div
           ref={scrollRef}
