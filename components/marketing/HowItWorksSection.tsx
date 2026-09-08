@@ -1,9 +1,19 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { NotebookPen, Sparkles, ShieldCheck, Layers, UserCheck, Compass } from "lucide-react";
+import { useState } from "react";
+import { NotebookPen, Sparkles, ShieldCheck, Layers, UserCheck, Compass, MousePointerClick, RefreshCw } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const STEPS = [
+interface Step {
+  number: string;
+  icon: LucideIcon;
+  title: string;
+  subtitle: string;
+  desc: string[];
+  list?: string[];
+}
+
+const STEPS: Step[] = [
   {
     number: "01",
     icon: NotebookPen,
@@ -25,7 +35,7 @@ const STEPS = [
   },
   {
     number: "03",
-    icon: ShieldCheck,
+    icon: RefreshCw,
     title: "See the patterns. Follow the evidence.",
     subtitle: "Every insight has a trail.",
     desc: [
@@ -77,48 +87,61 @@ const STEPS = [
   },
 ];
 
+function StepCardBody({ step }: { step: Step }) {
+  const Icon = step.icon;
+  return (
+    <>
+      <p className="mb-2 text-sm font-bold tracking-wide text-brand-500 transition-transform duration-200 group-hover:translate-x-1">
+        {step.number}
+      </p>
+      <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-4xl bg-brand-500 text-white transition-transform duration-300 ease-out group-hover:rotate-12 group-hover:scale-110">
+        <Icon size={18} />
+      </div>
+
+      <p className="inline-block text-lg font-semibold text-slate-900">{step.title}</p>
+      <div className="mb-1 h-0.5 w-0 rounded-full bg-brand-400 transition-all duration-300 ease-out group-hover:w-10" />
+      <p className="text-sm font-medium text-brand-600">{step.subtitle}</p>
+
+      <div className="mt-3 mb-4 max-w-2xl space-y-3">
+        {step.desc.map((paragraph, j) => (
+          <p key={j} className="text-sm text-muted">
+            {paragraph}
+          </p>
+        ))}
+      </div>
+
+      {step.list && (
+        <ul className="mb-4 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-1.5">
+          {step.list.map((item) => (
+            <li key={item} className="flex items-center gap-2 text-sm text-slate-700">
+              <span className="h-1 w-1 shrink-0 rounded-full bg-brand-400" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      )}
+    </>
+  );
+}
+
 export function HowItWorksSection() {
-  const containerRef = useRef<HTMLOListElement>(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const items = Array.from(container.querySelectorAll<HTMLElement>("[data-step-card]"));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("bowo-step-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-    );
-
-    items.forEach((item) => observer.observe(item));
-    return () => observer.disconnect();
-  }, []);
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <section id="how-it-works" className="mx-auto mt-10 w-full bg-background p-2 px-8 py-20 lg:px-16">
       <style>{`
-        [data-step-card] {
-          opacity: 0;
-          transform: translateY(24px);
-          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        @keyframes bowoStepIn {
+          from { opacity: 0; transform: translateY(24px) scale(0.96); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
         }
-        [data-step-card].bowo-step-visible {
-          opacity: 1;
-          transform: translateY(0);
+        .bowo-step-pop {
+          opacity: 0;
+          animation: bowoStepIn 0.5s ease-out forwards;
         }
         @media (prefers-reduced-motion: reduce) {
-          [data-step-card] {
+          .bowo-step-pop {
             opacity: 1;
-            transform: none;
-            transition: none;
+            animation: none;
           }
         }
       `}</style>
@@ -134,46 +157,39 @@ export function HowItWorksSection() {
         </p>
       </div>
 
-      <ol ref={containerRef} className="relative mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
-        {STEPS.map(({ number, icon: Icon, title, subtitle, desc, list }, i) => (
-          <li
-            key={title}
-            data-step-card
-            style={{ transitionDelay: `${(i % 3) * 200}ms` }}
-            className="group relative rounded-4xl p-5 shadow-lg transition-all duration-200 ease-in-out hover:-translate-y-1 hover:scale-[1.03] hover:shadow-xl active:scale-95 hover:bg-brand-50/60"
+      {!expanded ? (
+        <div className="mt-12 flex justify-center">
+          <div
+            role="button"
+            tabIndex={0}
+            aria-expanded={expanded}
+            onClick={() => setExpanded(true)}
+            onMouseEnter={() => setExpanded(true)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") setExpanded(true);
+            }}
+            className="group relative w-full max-w-sm cursor-pointer rounded-4xl p-6 shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.03] hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
           >
-            <p className="mb-2 text-sm font-bold tracking-wide text-brand-500 transition-transform duration-200 group-hover:translate-x-1">
-              {number} 
+            <StepCardBody step={STEPS[0]} />
+            <p className="mt-2 flex items-center gap-1.5 text-xs font-medium text-brand-500 opacity-70 transition-opacity group-hover:opacity-100">
+              <MousePointerClick size={13} />
+              Hover or tap to see the full journey
             </p>
-            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-4xl bg-brand-500 text-white transition-transform duration-300 ease-out group-hover:rotate-12 group-hover:scale-110">
-              <Icon size={18} />
-            </div>
-
-            <p className="inline-block text-lg font-semibold text-slate-900">{title}</p>
-            <div className="mb-1 h-0.5 w-0 rounded-full bg-brand-400 transition-all duration-300 ease-out group-hover:w-10" />
-            <p className="text-sm font-medium text-brand-600">{subtitle}</p>
-
-            <div className="mt-3 mb-4 max-w-2xl space-y-3">
-              {desc.map((paragraph, j) => (
-                <p key={j} className="text-sm text-muted">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-
-            {list && (
-              <ul className="mb-4 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-1.5">
-                {list.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-slate-700">
-                    <span className="h-1 w-1 shrink-0 rounded-full bg-brand-400" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ol>
+          </div>
+        </div>
+      ) : (
+        <ol className="relative mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          {STEPS.map((step, i) => (
+            <li
+              key={step.title}
+              className="bowo-step-pop group relative rounded-4xl p-5 shadow-lg transition-all duration-200 ease-in-out hover:-translate-y-1 hover:scale-[1.03] hover:shadow-xl hover:bg-brand-50/60 active:scale-95"
+              style={{ animationDelay: `${i * 1000}ms` }}
+            >
+              <StepCardBody step={step} />
+            </li>
+          ))}
+        </ol>
+      )}
     </section>
   );
 }
