@@ -171,7 +171,7 @@ export function HowItWorksSection() {
             className="group relative w-full max-w-sm cursor-pointer rounded-4xl p-6 shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.03] hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
           >
             <StepCardBody step={STEPS[0]} />
-            <p className="mt-2 flex items-center gap-1.5 text-xs font-medium text-brand-500 opacity-70 transition-opacity group-hover:opacity-100">
+            <p className="mt-2 flex items-center gap-1.5 text-[13px] font-semibold text-brand-500 opacity-70 transition-opacity group-hover:opacity-100">
               <MousePointerClick size={13} />
               Hover or tap to see the full journey
             </p>

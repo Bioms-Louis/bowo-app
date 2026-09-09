@@ -366,19 +366,19 @@ export function FeatureStrip() {
       id="features"
       className="bg-brand-50 relative z-10 mx-auto mt-10 px-4 sm:px-8 lg:px-16"
     >
-      <div className="overflow-hidden rounded-[2.5rem] bg-brand-50 py-10 sm:py-12">
-        <h4 className="mb-5 text-center text-2xl font-bold text-brand-500">
+      <div className="relative overflow-hidden rounded-[2.5rem] bg-brand-50 py-10 sm:py-12">
+        <h4 className="relative mb-5 text-center text-2xl font-bold text-brand-500">
           BOWO Features
         </h4>
-        <h2 className="mb-5 text-center text-2xl font-bold text-slate-900">
+        <h2 className="relative mb-5 text-center text-2xl font-bold text-slate-900">
           Discover BOWO Powerful Features
         </h2>
-        <p className="mx-auto mb-5 max-w-[600px] text-center text-muted">
+        <p className="relative mx-auto mb-5 max-w-[600px] text-center text-muted">
           BOWO is designed to help you uncover your purpose through journaling, insights, and AI guidance. Explore the features that make BOWO a unique companion on your journey of self-discovery and purpose.
         </p>
         <div
           ref={scrollRef}
-          className="bowo-feature-scroll flex items-start gap-5 overflow-x-auto px-6 pb-6 sm:gap-6 sm:px-8 lg:gap-8 lg:px-12"
+          className="bowo-feature-scroll relative flex items-start gap-5 overflow-x-auto px-6 pb-6 sm:gap-6 sm:px-8 lg:gap-8 lg:px-12"
         >
           {infiniteFeatures.map((feature, index) => (
             <article
@@ -386,27 +386,43 @@ export function FeatureStrip() {
               data-feature-card
               className={`group w-[210px] shrink-0 origin-bottom transition-all duration-300 hover:translate-y-2 hover:rotate-0 sm:w-[240px] lg:w-[260px] ${feature.rotate}`}
             >
-              {/* Main Feature Card */}
-              <div className="rounded-[1.6rem] border border-[#e6e0d8] bg-white px-4 pt-5 shadow-[0_12px_35px_rgba(0,0,0,0.06)] sm:px-5">
+              {/* Liquid glass card: translucent + backdrop-blur, a
+                  bright inset top edge and soft dark inset bottom edge
+                  to fake light catching a curved glass surface, plus a
+                  moving specular sheen on hover. */}
+              <div className="relative overflow-hidden rounded-2xl border border-white/50 bg-white/25 px-4 pt-5 shadow-[0_8px_32px_rgba(31,38,135,0.12),inset_0_1px_1px_rgba(255,255,255,0.8),inset_0_-1px_1px_rgba(0,0,0,0.05)] backdrop-blur-xl transition-shadow duration-300 sm:px-5">
+                {/* Small color blob contained entirely within this card
+                    (clipped by the card's own overflow-hidden) — gives
+                    the glass something local to refract without any
+                    color bleeding into the section behind it. */}
+                <div className="pointer-events-none absolute -left-6 -top-6 h-28 w-28 rounded-full bg-brand-200 blur-3xl" />
+                <div className="pointer-events-none absolute -right-12 -bottom-6 h-70 w-70 rounded-full bg-brand-100 blur-2xl" />
                 
-                {/* Heading */}
-                <div className="text-center">
-                  <h3 className="font-serif text-xl leading-tight text-slate-900 sm:text-2xl">
-                    {feature.title}
-                  </h3>
+                {/* Specular highlight — drifts on hover to suggest the
+                    glass catching light as you interact with it. */}
+                <div className="pointer-events-none absolute -left-1/3 -top-1/3 h-2/3 w-2/3 rotate-12 rounded-full bg-brand-100/50 blur-4xl transition-transform duration-2000 ease-out group-hover:translate-x-8 group-hover:translate-y-6" />
+                <div className="pointer-events-none absolute -right-2/6 -bottom-2/6 h-4/6 w-4/6 rotate-24 rounded-full bg-brand-100/50 blur-4xl transition-transform duration-2000 ease-out group-hover:translate-x-16 group-hover:translate-y-12" />
 
-                  <p className="mx-auto mt-2 max-w-[200px] font-serif text-[11px] italic leading-4 text-muted sm:text-xs">
-                    {feature.desc}
-                  </p>
+                <div className="relative">
+                  {/* Heading */}
+                  <div className="text-center">
+                    <h3 className="font-serif text-xl leading-tight text-slate-900 sm:text-2xl">
+                      {feature.title}
+                    </h3>
+
+                    <p className="mx-auto mt-2 max-w-[200px] font-serif text-[11px] italic leading-4 text-muted sm:text-xs">
+                      {feature.desc}
+                    </p>
+                  </div>
+
+                  {/* Phone */}
+                  <div className="mt-4">
+                    {feature.mock}
+                  </div>
+
+                  {/* Bottom spacing */}
+                  <div className="h-4" />
                 </div>
-
-                {/* Phone */}
-                <div className="mt-4">
-                  {feature.mock}
-                </div>
-
-                {/* Bottom spacing */}
-                <div className="h-4" />
               </div>
             </article>
           ))}
