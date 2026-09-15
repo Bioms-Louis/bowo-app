@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { NotebookPen, Sparkles, ShieldCheck, Layers, UserCheck, Compass, MousePointerClick, RefreshCw } from "lucide-react";
+import { NotebookPen, Sparkles, Layers, UserCheck, Compass, MousePointerClick, RefreshCw } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface Step {
@@ -20,8 +20,8 @@ const STEPS: Step[] = [
     title: "Start with your story",
     subtitle: "Write what actually happened.",
     desc: [
-      "A reflection. A decision. A goal. A difficult moment. Something you're grateful for. A lesson you learned. Whatever is real today.",
-      "There are no right answers and no personality test to complete. You simply tell BOWO what happened.",
+      "Whatever is real today. A thought, decision, goal, challenge, gratitude, or lesson.", 
+      "No right answers. No tests. Just tell BOWO what happened.",
     ],
   },
   {
@@ -30,7 +30,7 @@ const STEPS: Step[] = [
     title: "Let BOWO read between the lines",
     subtitle: "Your story becomes the evidence.",
     desc: [
-      "As your reflections accumulate, BOWO analyzes what you're sharing for recurring themes, values, motivations, strengths, experiences, behaviors, and areas of growth. Its analysis is guided by the BOWO Purpose Framework a body of teachings and principles developed by Olajide Ajibowo over more than two decades, through his books, teachings, and understanding of purpose inspired by the Holy Spirit, with psychological analysis applied where relevant.",
+      "BOWO uncovers your purpose patterns through AI and the BOWO Purpose Framework, shaped by Olajide Ajibowo’s teachings and inspired by the Holy Spirit.",  
     ],
   },
   {
@@ -39,7 +39,8 @@ const STEPS: Step[] = [
     title: "See the patterns. Follow the evidence.",
     subtitle: "Every insight has a trail.",
     desc: [
-      "When BOWO identifies a recurring pattern, you can see the reflections that contributed to it. Instead of simply telling you who you are, BOWO shows you why an insight emerged. You can revisit the evidence, reflect on it, question it, and decide whether it genuinely represents you. No black-box answers. No purpose manufactured from a single prompt.",
+      "See the patterns BOWO finds, explore the evidence, and decide what truly resonates with you.",
+      "No black boxes just your story and the insights within it.",
     ],
   },
   {
@@ -48,18 +49,9 @@ const STEPS: Step[] = [
     title: "Watch your Purpose Blueprint emerge",
     subtitle: "A picture of purpose, built over time.",
     desc: [
-      "As enough patterns emerge, BOWO begins bringing them together into your Purpose Blueprint. Your Blueprint can reveal connections between your:",
+      "As patterns emerge, BOWO builds your Purpose Blueprint, revealing connections between your purpose, calling, assignment, warnings, talents, spiritual gifts, tribes, encounters, and more.",  
     ],
-    list: [
-      "Purpose",
-      "Calling",
-      "Assignment",
-      "Destiny Warnings",
-      "Talents",
-      "Spiritual Gifts",
-      "Biblical & Contemporary Tribes",
-      "Encounters and more",
-    ],
+    
   },
   {
     number: "05",
@@ -67,10 +59,8 @@ const STEPS: Step[] = [
     title: "Put your Blueprint to the test",
     subtitle: "Discovery is not the same as confirmation.",
     desc: [
-      "Once your Purpose Blueprint has taken shape, you can submit it to the BOWO Verification Team for a deeper human review.",
-      "Your Blueprint becomes the starting point for a more intentional process of prophetic prayer, counselling, discernment, and guidance.",
-      "The team reviews what has emerged, considers the patterns and themes in your Blueprint, and helps you explore what may be next.",
-      "AI helps you discover the picture. Human guidance helps you discern what to do with it.",
+      "Once your Purpose Blueprint takes shape, the BOWO Verification Team reviews it through human discernment, prophetic prayer, and counselling.",
+      "AI reveals the picture. Human guidance helps you discern the path.",
     ],
   },
   {
@@ -79,9 +69,7 @@ const STEPS: Step[] = [
     title: "Discover what comes next",
     subtitle: "Purpose isn't the end of the journey.",
     desc: [
-      "After verification, you're not simply handed a conclusion and left alone.",
-      "Your next steps can include personalized counselling, practical direction, continued reflection, and ongoing support as you begin to understand and live out what you've discovered.",
-      "And because your story continues, your Blueprint can continue to evolve with you.",
+      "After verification, receive personalized guidance, counselling, and ongoing support to help you understand and live out your purpose. Your Blueprint evolves as your journey unfolds",
       "Discover. Discern. Develop. Live.",
     ],
   },

@@ -388,15 +388,11 @@ export function FeatureStrip() {
             >
               {/* Liquid glass card*/}
               <div className="relative overflow-hidden rounded-2xl border-1 border-brand-200 bg-brand-50 px-4 pt-5 shadow-[0_8px_32px_rgba(31,38,135,0.12),inset_0_1px_1px_rgba(255,255,255,0.8),inset_0_-1px_1px_rgba(0,0,0,0.05)] backdrop-blur-4xl transition-shadow duration-300 sm:px-5">
-                {/* Small color blob contained entirely within this card
-                    (clipped by the card's own overflow-hidden) — gives
-                    the glass something local to refract without any
-                    color bleeding into the section behind it. */}
+                {/* Small color blob contained entirely within this card */}
                 <div className="pointer-events-none absolute -left-6 -top-6 h-28 w-28 rounded-full bg-brand-200 blur-3xl" />
                 <div className="pointer-events-none absolute -right-12 -bottom-6 h-70 w-70 rounded-full bg-brand-100 blur-2xl" />
                 
-                {/* Specular highlight — drifts on hover to suggest the
-                    glass catching light as you interact with it. */}
+                {/* Specular highlight */}
                 <div className="pointer-events-none absolute -left-1/3 -top-1/3 h-2/3 w-2/3 rotate-12 rounded-full bg-brand-100 blur-3xl transition-transform duration-2000 ease-out group-hover:translate-x-8 group-hover:translate-y-6" />
                 <div className="pointer-events-none absolute -right-2/6 -bottom-2/6 h-4/6 w-4/6 rotate-24 rounded-full bg-brand-100 blur-4xl transition-transform duration-2000 ease-out group-hover:translate-x-16 group-hover:translate-y-12" />
 

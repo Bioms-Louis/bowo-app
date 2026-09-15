@@ -115,12 +115,7 @@ function LoginForm() {
                 />
               </div>
               <div>
-                <div className="mb-1 flex items-center justify-between">
-                  <label className="block text-sm font-medium text-slate-700">Password</label>
-                  <Link href="/forgot-password" className="text-xs font-medium text-brand-600">
-                    Forgot password?
-                  </Link>
-                </div>
+                <label className="block text-sm font-medium text-slate-700">Password</label>
                 <Input
                   type="password"
                   required
@@ -128,6 +123,11 @@ function LoginForm() {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                 />
+                <div className="mt-4 flex items-right justify-end">
+                  <Link href="/forgot-password" className="text-xs font-medium text-brand-600">
+                    Forgot password?
+                  </Link>
+                </div>
               </div>
 
               {error && <p className="text-sm text-red-600">{error}</p>}
@@ -138,7 +138,7 @@ function LoginForm() {
 
               <div className="text-center">
                 <span className="text-muted">Don&apos;t have an account?</span>
-                <Link href="/signup" className="ml-1 font-medium text-brand-600">
+                <Link href="/signup" className="ml-1 font-small text-brand-600">
                   Sign up
                 </Link>
               </div>
