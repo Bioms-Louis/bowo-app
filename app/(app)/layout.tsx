@@ -13,7 +13,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("first_name, last_name")
+    .select("first_name, last_name, avatar_url")
     .eq("id", user.id)
     .single();
 
@@ -21,7 +21,11 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   return (
     <div className="flex min-h-screen flex-col bg-muted-bg lg:flex-row">
-      <Sidebar userName={fullName || "Your Journey"} userEmail={user.email ?? ""} />
+      <Sidebar
+        userName={fullName || "Your Journey"}
+        userEmail={user.email ?? ""}
+        avatarUrl={profile?.avatar_url ?? null}
+      />
       <main className="flex-1 overflow-y-auto">{children}</main>
       <AIChatWidget />
     </div>

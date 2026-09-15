@@ -12,6 +12,7 @@ import {
   LogOut,
   Menu,
   X,
+  User,
 } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 import { createClient } from "@/lib/supabase/client";
@@ -24,7 +25,15 @@ const NAV_ITEMS = [
   { href: "/evidence", label: "Evidence", icon: ShieldCheck },
 ];
 
-export function Sidebar({ userName, userEmail }: { userName: string; userEmail: string }) {
+export function Sidebar({
+  userName,
+  userEmail,
+  avatarUrl,
+}: {
+  userName: string;
+  userEmail: string;
+  avatarUrl?: string | null;
+}) {
   const pathname = usePathname();
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -80,16 +89,31 @@ export function Sidebar({ userName, userEmail }: { userName: string; userEmail: 
     </nav>
   );
 
+  // Small reusable avatar bubble — falls back to a generic user icon
+  // when no avatar_url is set yet, so the layout never looks broken
+  // for accounts that haven't uploaded a photo.
+  const avatar = (
+    <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-brand-50">
+      {avatarUrl ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={avatarUrl} alt="" className="h-full w-full object-cover" />
+      ) : (
+        <User size={16} className="text-brand-400" />
+      )}
+    </div>
+  );
+
   const accountCard = (
-    <div className="mt-auto flex items-center justify-between rounded-lg border border-border-subtle p-3">
-      <div className="min-w-0">
+    <div className="mt-auto flex items-center gap-3 rounded-lg border border-border-subtle p-3">
+      {avatar}
+      <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-medium text-slate-900">{userName}</p>
         <p className="truncate text-xs text-muted">{userEmail}</p>
       </div>
       <button
         onClick={handleLogout}
         aria-label="Log out"
-        className="rounded-md p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600"
+        className="shrink-0 rounded-md p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600"
       >
         <LogOut size={16} />
       </button>
@@ -97,14 +121,14 @@ export function Sidebar({ userName, userEmail }: { userName: string; userEmail: 
   );
 
   const logo = (
-      <Link href="/dashboard" className="flex items-center px-1">
-        <Image
-          src="/image/logo.png"
-          alt="BOWO — Born With Purpose"
-          width={150}
-          height={150}
-        />
-      </Link>
+    <Link href="/dashboard" className="flex items-center px-1">
+      <Image
+        src="/image/logo.png"
+        alt="BOWO — Born With Purpose"
+        width={150}
+        height={150}
+      />
+    </Link>
   );
 
   return (
